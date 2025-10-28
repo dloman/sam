@@ -1,0 +1,73 @@
+package(default_visibility = ["//visibility:public"])
+
+config_setting(
+  name = "macos_arm64",
+  values = {"cpu": "darwin_arm64"},
+)
+
+config_setting(
+  name = "macos_default",
+  values = {"cpu": "darwin"},
+)
+
+config_setting(
+  name = "macos_x86_64",
+  values = {"cpu": "darwin_x86_64"},
+)
+
+cc_library(
+    name = "sam",
+    srcs = [
+        "sam.cpp",
+    ],
+    hdrs = [
+        "include/boost/sam.hpp",
+        "include/boost/sam/barrier.hpp",
+        "include/boost/sam/basic_barrier.hpp",
+        "include/boost/sam/basic_condition_variable.hpp",
+        "include/boost/sam/basic_mutex.hpp",
+        "include/boost/sam/basic_semaphore.hpp",
+        "include/boost/sam/basic_shared_mutex.hpp",
+        "include/boost/sam/condition_variable.hpp",
+        "include/boost/sam/guarded.hpp",
+        "include/boost/sam/lock_guard.hpp",
+        "include/boost/sam/mutex.hpp",
+        "include/boost/sam/semaphore.hpp",
+        "include/boost/sam/shared_lock_guard.hpp",
+        "include/boost/sam/shared_mutex.hpp",
+        "include/boost/sam/src.hpp",
+        "include/boost/sam/detail/barrier_impl.hpp",
+        "include/boost/sam/detail/basic_op.hpp",
+        "include/boost/sam/detail/basic_op_model.hpp",
+        "include/boost/sam/detail/bilist_node.hpp",
+        "include/boost/sam/detail/concurrency_hint.hpp",
+        "include/boost/sam/detail/conditionally_enabled_mutex.hpp",
+        "include/boost/sam/detail/condition_variable_impl.hpp",
+        "include/boost/sam/detail/config.hpp",
+        "include/boost/sam/detail/exception.hpp",
+        "include/boost/sam/detail/guarded.hpp",
+        "include/boost/sam/detail/impl/barrier_impl.ipp",
+        "include/boost/sam/detail/impl/basic_op_model.hpp",
+        "include/boost/sam/detail/impl/condition_variable_impl.ipp",
+        "include/boost/sam/detail/impl/exception.ipp",
+        "include/boost/sam/detail/impl/mutex_impl.ipp",
+        "include/boost/sam/detail/impl/predicate_op_model.hpp",
+        "include/boost/sam/detail/impl/semaphore_impl.ipp",
+        "include/boost/sam/detail/impl/service.ipp",
+        "include/boost/sam/detail/impl/shared_mutex_impl.ipp",
+        "include/boost/sam/detail/mutex_impl.hpp",
+        "include/boost/sam/detail/predicate_op.hpp",
+        "include/boost/sam/detail/predicate_op_model.hpp",
+        "include/boost/sam/detail/semaphore_impl.hpp",
+        "include/boost/sam/detail/service.hpp",
+        "include/boost/sam/detail/shared_mutex_impl.hpp",
+        "include/boost/sam/impl/basic_barrier.hpp",
+        "include/boost/sam/impl/basic_condition_variable.hpp",
+        "include/boost/sam/impl/basic_mutex.hpp",
+        "include/boost/sam/impl/basic_semaphore.hpp",
+        "include/boost/sam/impl/basic_shared_mutex.hpp",
+    ],
+    deps = [
+         "@boost//:asio",
+    ],
+)
