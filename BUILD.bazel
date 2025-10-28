@@ -69,6 +69,6 @@ cc_library(
         "include/boost/sam/impl/basic_shared_mutex.hpp",
     ],
     deps = [
-         "@boost.asio//:boost.asio",
+         "@boost//:asio",
     ],
 )
