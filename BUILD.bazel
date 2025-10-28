@@ -18,8 +18,9 @@ config_setting(
 cc_library(
     name = "sam",
     srcs = [
-        "sam.cpp",
+        "src/src.cpp",
     ],
+    includes = ["include"],
     hdrs = [
         "include/boost/sam.hpp",
         "include/boost/sam/barrier.hpp",
@@ -68,6 +69,6 @@ cc_library(
         "include/boost/sam/impl/basic_shared_mutex.hpp",
     ],
     deps = [
-         "@boost//:asio",
+         "@boost.asio//:boost.asio",
     ],
 )
